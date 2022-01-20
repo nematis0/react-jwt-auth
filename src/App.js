@@ -12,7 +12,9 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
-import Proba from ".sajatosztalyok/Proba"
+import Proba from "./sajatosztalyok/Proba";
+import Kereses from "./sajatosztalyok/Kereses";
+import Anime from "./sajatosztalyok/Anime";
 
 class App extends Component {
   constructor(props) {
@@ -61,6 +63,18 @@ class App extends Component {
             <li className="nav-item">
               <Link to={"/Proba"} className="nav-link">
                 Próba
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to={"/Kereses"} className="nav-link">
+                Keresés
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to={"/Anime"} className="nav-link">
+                Animék
               </Link>
             </li>
 
@@ -129,6 +143,8 @@ class App extends Component {
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
             <Route path="/Proba" component={Proba}/>
+            <Route path="/Kereses" component={Kereses}/>
+            <Route path="/Anime" component={Anime}/>
           </Switch>
         </div>
       </div>
