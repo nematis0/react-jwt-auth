@@ -15,6 +15,8 @@ import BoardAdmin from "./components/board-admin.component";
 import Proba from "./sajatosztalyok/Proba";
 import Kereses from "./sajatosztalyok/Kereses";
 import Anime from "./sajatosztalyok/Anime";
+import Torles from "./sajatosztalyok/Torles";
+import Uzenettorles from "./sajatosztalyok/Uzenettorles";
 
 class App extends Component {
   constructor(props) {
@@ -88,6 +90,22 @@ class App extends Component {
 
             {showAdminBoard && (
               <li className="nav-item">
+                <Link to={"/Torles"} className="nav-link">
+                  Anime törlés
+                </Link>
+              </li>
+            )}
+
+            {showAdminBoard && (
+              <li className="nav-item">
+                <Link to={"/Uzenettorles"} className="nav-link">
+                  Üzenet törlés
+                </Link>
+              </li>
+            )}
+
+            {showAdminBoard && (
+              <li className="nav-item">
                 <Link to={"/admin"} className="nav-link">
                   Admin Lap
                 </Link>
@@ -145,6 +163,8 @@ class App extends Component {
             <Route path="/Proba" component={Proba}/>
             <Route path="/Kereses" component={Kereses}/>
             <Route path="/Anime" component={Anime}/>
+            <Route path="/Torles" component={Torles}/>
+            <Route path="/Uzenettorles" component={Uzenettorles}/>
           </Switch>
         </div>
       </div>
