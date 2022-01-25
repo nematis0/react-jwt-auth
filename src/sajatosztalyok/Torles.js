@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, FlatList, ActivityIndicator, Text, View, Image , TouchableOpacity } from 'react-native';
+import {StyleSheet, FlatList, ActivityIndicator, Text, View, Image , TouchableOpacity } from 'react-native-web';
 
 export default class FetchExample extends React.Component {
 
@@ -13,8 +13,7 @@ export default class FetchExample extends React.Component {
     var bemenet={
       bevitel6:szam
     }
-
-  fetch("http://localhost:3000/animetorles", {
+  fetch("http://localhost:8080/animetorles", {
       method: "POST",
       body: JSON.stringify(bemenet),
       headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -22,27 +21,29 @@ export default class FetchExample extends React.Component {
   
   )
   .then(x => x.text())
-  .then(y => alert(y));
+  .then(y => {alert(y);this.lekerdezes()});
+    
+  }
+  lekerdezes=()=>{
+    fetch('http://localhost:8080/Animek')
+    .then((response) => response.json())
+    .then((responseJson) => {
 
+      this.setState({
+        isLoading: false,
+        dataSource: responseJson,
+      }, function(){
+
+      });
+
+    })
+    .catch((error) =>{
+      console.error(error);
+    });
   }
 
-
   componentDidMount(){
-    return fetch('http://localhost:3000/anime')
-      .then((response) => response.json())
-      .then((responseJson) => {
-
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson,
-        }, function(){
-
-        });
-
-      })
-      .catch((error) =>{
-        console.error(error);
-      });
+    this.lekerdezes()
   }
 
 
@@ -69,7 +70,7 @@ export default class FetchExample extends React.Component {
 
           <TouchableOpacity
         style={styles.kekgomb}
-        onPress={async ()=>this.szavazat(item.Anime_id)}
+        onPress={async ()=>this.szavazat(item.anime_id)}
       >
         <Text style={{color:"white",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
       </TouchableOpacity>

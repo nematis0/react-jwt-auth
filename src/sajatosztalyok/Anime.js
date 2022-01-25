@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-native';
-import { View, Text, StyleSheet, TouchableOpacity,Dimensions, Image, FlatList, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity,Dimensions, Image, FlatList, ScrollView} from 'react-native-web';
 
 
 

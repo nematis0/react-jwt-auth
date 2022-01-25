@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet,Text, TextInput, View,TouchableOpacity,FlatList,Image } from 'react-native';
+import { StyleSheet,Text, TextInput, View,TouchableOpacity,FlatList,Image } from 'react-native-web';
 
 
 
