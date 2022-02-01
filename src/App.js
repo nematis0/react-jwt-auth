@@ -13,11 +13,11 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
-import Proba from "./sajatosztalyok/Proba";
 import Kereses from "./sajatosztalyok/Kereses";
 import Anime from "./sajatosztalyok/Anime";
 import Torles from "./sajatosztalyok/Torles";
 import Uzenettorles from "./sajatosztalyok/Uzenettorles";
+import Animefelvitel from "./sajatosztalyok/Animefelvitel";
 
 class App extends Component {
   constructor(props) {
@@ -55,13 +55,13 @@ class App extends Component {
 
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="#home">
-        Dice Roller
+        Anime World
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <Nav.Link href="/Anime">Animék</Nav.Link>
+          <Nav.Link href="/Kereses">Keresés</Nav.Link>
           <NavDropdown title="Admin" id="collasible-nav-dropdown">
             {showAdminBoard && (
             <NavDropdown.Item href="/Torles">Anime törlés</NavDropdown.Item>
@@ -72,107 +72,37 @@ class App extends Component {
             )}
 
             {showAdminBoard && (
-            <NavDropdown.Item href="#action/3.3">Anime felvitel</NavDropdown.Item>
+            <NavDropdown.Item href="/Animefelvitel">Anime felvitel</NavDropdown.Item>
             )}
 
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            
           </NavDropdown>
         </Nav>
         <Nav>
         {currentUser ? (
-          <Nav.Link href="/profile">{currentUser.username}</Nav.Link>
+          <Nav className="mr-auto">
+          <Nav.Link href="/profile">
+            {currentUser.username}
+            </Nav.Link>
+            <Nav.Link href="/login" onClick={this.logOut}>
+            Kijelentkezés
+            </Nav.Link>
+            </Nav>
           ) : (
-          <Nav.Link eventKey={2} href="#memes">Dank memes</Nav.Link>
+            
+            <Nav className="mr-auto">
+            <Nav.Link href="/login">
+            Bejelentkezés
+              </Nav.Link>
+              <Nav.Link href="/register">
+              Regisztráció
+              </Nav.Link>
+              </Nav>
           )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-
-{/*-------------------------------------------------------------Régi-------------------------------------------*/}
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/"} className="navbar-brand">
-            bezKoder
-          </Link>
-          <div className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                Home
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to={"/Proba"} className="nav-link">
-                Próba
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to={"/Kereses"} className="nav-link">
-                Keresés
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to={"/Anime"} className="nav-link">
-                Animék
-              </Link>
-            </li>
-
-            {showModeratorBoard && (
-              <li className="nav-item">
-                <Link to={"/mod"} className="nav-link">
-                  Moderator Board
-                </Link>
-              </li>
-            )}
-
-            {showAdminBoard && (
-              <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                  Admin Lap
-                </Link>
-              </li>
-            )}
-
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/user"} className="nav-link">
-                  User
-                </Link>
-              </li>
-            )}
-          </div>
-
-          {currentUser ? (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
-                  {currentUser.username}
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={this.logOut}>
-                  LogOut
-                </a>
-              </li>
-            </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
-                  Login
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Sign Up
-                </Link>
-              </li>
-            </div>
-          )}
-        </nav>
 
         <div className="container mt-3">
           <Switch>
@@ -183,11 +113,11 @@ class App extends Component {
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
-            <Route path="/Proba" component={Proba}/>
             <Route path="/Kereses" component={Kereses}/>
             <Route path="/Anime" component={Anime}/>
             <Route path="/Torles" component={Torles}/>
             <Route path="/Uzenettorles" component={Uzenettorles}/>
+            <Route path="/Animefelvitel" component={Animefelvitel}/>
           </Switch>
         </div>
       </div>

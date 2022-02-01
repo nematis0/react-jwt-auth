@@ -10,7 +10,7 @@ const required = value => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+        Mező kitöltése kötelező!
       </div>
     );
   }
@@ -20,7 +20,7 @@ const email = value => {
   if (!isEmail(value)) {
     return (
       <div className="alert alert-danger" role="alert">
-        This is not a valid email.
+        Nem valódi E-mail.
       </div>
     );
   }
@@ -30,7 +30,7 @@ const vusername = value => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
-        The username must be between 3 and 20 characters.
+        A felhasználó névnek 3 és 20 karakter között kell lennie.
       </div>
     );
   }
@@ -40,7 +40,7 @@ const vpassword = value => {
   if (value.length < 6 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
-        The password must be between 6 and 40 characters.
+        A jelszónak 6 és 40 karakter között kell lennie.
       </div>
     );
   }
@@ -139,7 +139,7 @@ export default class Register extends Component {
             {!this.state.successful && (
               <div>
                 <div className="form-group">
-                  <label htmlFor="username">Username</label>
+                  <label htmlFor="username">Felhasználó név</label>
                   <Input
                     type="text"
                     className="form-control"
@@ -151,7 +151,7 @@ export default class Register extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email">E-mail</label>
                   <Input
                     type="text"
                     className="form-control"
@@ -163,7 +163,7 @@ export default class Register extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">Jelszó</label>
                   <Input
                     type="password"
                     className="form-control"
@@ -175,7 +175,7 @@ export default class Register extends Component {
                 </div>
 
                 <div className="form-group">
-                  <button className="btn btn-primary btn-block">Sign Up</button>
+                  <button className="btn btn-primary btn-block">Regisztráció</button>
                 </div>
               </div>
             )}
