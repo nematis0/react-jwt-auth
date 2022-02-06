@@ -8,12 +8,11 @@ export default class FetchExample extends React.Component {
     this.state ={ isLoading: true}
   }
 
-  szavazat=(szam)=>{
+  torles=(szam)=>{
     //alert(szam)
     var bemenet={
       bevitel7:szam
     }
-
   fetch("http://localhost:8080/uzenettorles", {
       method: "POST",
       body: JSON.stringify(bemenet),
@@ -28,7 +27,7 @@ export default class FetchExample extends React.Component {
 
 
   componentDidMount(){
-    return fetch('http://localhost:8080/uzenet')
+    return fetch('http://localhost:8080/animeuzitorles')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -64,12 +63,13 @@ export default class FetchExample extends React.Component {
           renderItem={({item}) => 
 
           <View >
-          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.uzenet_id} </Text>
+          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.uzenet_nev} </Text>
+          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.uzenet_szoveg} </Text>
           <Image  source={{uri: 'http://localhost:8080/'+item.anime_kep}} style={{width:300,height:300,marginLeft:"auto",marginRight:"auto"}} />  
 
           <TouchableOpacity
         style={styles.kekgomb}
-        onPress={async ()=>this.szavazat(item.uzenet_id)}
+        onPress={async ()=>this.torles(item.uzenet_id)}
       >
         <Text style={{color:"white",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
       </TouchableOpacity>
