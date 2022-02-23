@@ -18,6 +18,7 @@ import Anime from "./sajatosztalyok/Anime";
 import Torles from "./sajatosztalyok/Torles";
 import Uzenettorles from "./sajatosztalyok/Uzenettorles";
 import Animefelvitel from "./sajatosztalyok/Animefelvitel";
+import Upload from "./sajatosztalyok/Upload";
 
 class App extends Component {
   constructor(props) {
@@ -62,22 +63,24 @@ class App extends Component {
         <Nav className="mr-auto">
           <Nav.Link href="/Anime">Animék</Nav.Link>
           <Nav.Link href="/Kereses">Keresés</Nav.Link>
+          {showAdminBoard && (
           <NavDropdown title="Admin" id="collasible-nav-dropdown">
-            {showAdminBoard && (
-            <NavDropdown.Item href="/Torles">Anime törlés</NavDropdown.Item>
-            )}
             
-            {showAdminBoard && (
+            <NavDropdown.Item href="/Torles">Anime törlés</NavDropdown.Item>
+            
+            
+            
             <NavDropdown.Item href="/Uzenettorles">Üzenet törlés</NavDropdown.Item>
-            )}
+            
 
-            {showAdminBoard && (
+            
             <NavDropdown.Item href="/Animefelvitel">Anime felvitel</NavDropdown.Item>
-            )}
+            
 
             <NavDropdown.Divider />
             
           </NavDropdown>
+          )}  
         </Nav>
         <Nav>
         {currentUser ? (
@@ -118,6 +121,7 @@ class App extends Component {
             <Route path="/Torles" component={Torles}/>
             <Route path="/Uzenettorles" component={Uzenettorles}/>
             <Route path="/Animefelvitel" component={Animefelvitel}/>
+            <Route path="/Upload" component={Upload}/>
           </Switch>
         </div>
       </div>

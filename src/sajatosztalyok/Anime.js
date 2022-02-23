@@ -66,7 +66,9 @@ export default class Anime extends Component {
 
   }
 
-
+report=async(uzi)=>{
+  alert(uzi)
+}
 
   kereses=async (tipus)=>{
 
@@ -299,6 +301,12 @@ export default class Anime extends Component {
           <Text style={styles.cim}>{item.uzenet_szoveg}</Text>
 
           <Text style={styles.cim}>{item.uzenet_nev}</Text>
+        
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.report()}>
+          <View style={styles.ScrollContainer}>
+          </View>
+          </TouchableOpacity>
 
           
 

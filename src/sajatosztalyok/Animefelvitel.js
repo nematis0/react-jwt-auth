@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet,Text, TextInput, View,TouchableOpacity } from 'react-native-web';
-
+import FileUpload from "./Upload"
 
 
 export default class Animefelvitel extends Component {
@@ -110,6 +110,7 @@ felvitel=async ()=>{
             onChangeText={(valasz2) => this.setState({valasz2})}
             value={this.state.valasz2}
           />
+          <FileUpload></FileUpload>
           <Text style={{color:'black'}}>
                 Leírás
             </Text>
