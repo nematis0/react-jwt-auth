@@ -27,7 +27,7 @@ export default class FetchExample extends React.Component {
 
 
   componentDidMount(){
-    return fetch('http://localhost:8080/animeuzitorles')
+    return fetch('http://localhost:8080/animekommentek')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -64,8 +64,7 @@ export default class FetchExample extends React.Component {
 
           <View >
           <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.uzenet_nev} </Text>
-          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.uzenet_szoveg} </Text>
-          <Image  source={{uri: 'http://localhost:8080/'+item.anime_kep}} style={{width:300,height:300,marginLeft:"auto",marginRight:"auto"}} />  
+          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.uzenet_szoveg} </Text> 
 
           <TouchableOpacity
         style={styles.kekgomb}

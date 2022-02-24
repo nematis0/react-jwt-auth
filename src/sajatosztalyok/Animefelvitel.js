@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet,Text, TextInput, View,TouchableOpacity } from 'react-native-web';
-import FileUpload from "./Upload"
-
+import { StyleSheet,Text, TextInput, View, TouchableOpacity} from 'react-native-web';
+import FileUpload from "./Upload";
 
 export default class Animefelvitel extends Component {
   constructor(props) {
@@ -20,17 +19,16 @@ export default class Animefelvitel extends Component {
 felvitel=async ()=>{
     //alert("megnyomva a gomb")
 
-    if (this.state.id=="" || this.state.cim==""|| this.state.tipus==""|| this.state.kep==""|| this.state.leiras=="")
+    if (this.state.anime_cim==""|| this.state.anime_tipus==""|| this.state.anime_kep==""|| this.state.anime_leiras=="")
     {
       alert("toltsd ki!!")
       return
     }
     let bemenet={
-      bevitel1:this.state.id,
-      bevitel2:this.state.cim,
-      bevitel3:this.state.tipus,
-      bevitel4:this.state.kep,
-      bevitel5:this.state.leiras,
+      bevitel1:this.state.anime_cim,
+      bevitel2:this.state.anime_tipus,
+      bevitel3:this.state.anime_kep,
+      bevitel4:this.state.anime_leiras,
       
     }
 
@@ -50,11 +48,10 @@ felvitel=async ()=>{
 
     alert(szoveg)
      
-    this.setState({id:""})
-    this.setState({cim:""})
-    this.setState({tipus:""})
-    this.setState({kep:""})
-    this.setState({leiras:""})
+    this.setState({anime_cim:""})
+    this.setState({anime_tipus:""})
+    this.setState({anime_kep:""})
+    this.setState({anime_leiras:""})
     
 
 })
@@ -67,18 +64,6 @@ felvitel=async ()=>{
       <View style = {{}}>
         <View style={{padding: 10, backgroundColor:'#dddddd'}}>
 
-        
-
-            <Text style={{color:'black'}}>
-                ID
-            </Text>
-          <TextInput
-            placeholderTextColor="#dddddd"
-            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30}}
-            placeholder="Anime ID: "
-            onChangeText={(kerdes) => this.setState({kerdes})}
-            value={this.state.kerdes}
-          />
   
           <Text style={{color:'black'}}>
                 Anime cím
@@ -87,8 +72,8 @@ felvitel=async ()=>{
             placeholderTextColor="#dddddd"
             style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30}}
             placeholder="Anime cím: "
-            onChangeText={(kep) => this.setState({kep})}
-            value={this.state.kep}
+            onChangeText={(anime_cim) => this.setState({anime_cim})}
+            value={this.state.anime_cim}
           />
           <Text style={{color:'black'}}>
                 Típus
@@ -97,20 +82,9 @@ felvitel=async ()=>{
             placeholderTextColor="#dddddd"
             style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30}}
             placeholder="Anime típusa: "
-            onChangeText={(valasz1) => this.setState({valasz1})}
-            value={this.state.valasz1}
+            onChangeText={(anime_tipus) => this.setState({anime_tipus})}
+            value={this.state.anime_tipus}
           />
-          <Text style={{color:'black'}}>
-                Kép
-            </Text>
-          <TextInput
-            placeholderTextColor="#dddddd"
-            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30}}
-            placeholder="Anime kép: "
-            onChangeText={(valasz2) => this.setState({valasz2})}
-            value={this.state.valasz2}
-          />
-          <FileUpload></FileUpload>
           <Text style={{color:'black'}}>
                 Leírás
             </Text>
@@ -118,15 +92,10 @@ felvitel=async ()=>{
             placeholderTextColor="#dddddd"
             style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30}}
             placeholder="Anime leírás: "
-            onChangeText={(valasz3) => this.setState({valasz3})}
-            value={this.state.valasz3}
+            onChangeText={(anime_leiras) => this.setState({anime_leiras})}
+            value={this.state.anime_leiras}
           />
-           <TouchableOpacity
-            onPress={async ()=>this.felvitel()}>
-            <View style={styles.gomb}>
-              <Text style={styles.gombSzoveg}>Felvitel</Text>
-            </View>
-          </TouchableOpacity> 
+          <FileUpload anime_cim={this.state.anime_cim} anime_tipus={this.state.anime_tipus} anime_kep={this.state.anime_kep} anime_leiras={this.state.anime_leiras}       ></FileUpload>
   
           </View>
   
