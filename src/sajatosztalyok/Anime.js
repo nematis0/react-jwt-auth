@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-native';
 import { View, Text, StyleSheet, TouchableOpacity,Dimensions, Image, FlatList, ScrollView} from 'react-native-web';
+import Iframe from 'react-iframe';
+
 
 
 
@@ -14,7 +16,7 @@ export default class Anime extends Component {
 
     super(props);
 
-    this.state = {text: '',akttema:1, isVisible: false,animedata:[],dataSource:[], dataSource2:[]};
+    this.state = {text: '',akttema:1, isVisible: false,animedata:[],dataSource:[], dataSource2:[], dataSourcelinkek:[]};
 
   }
 
@@ -23,35 +25,21 @@ export default class Anime extends Component {
   componentDidMount(){
 
     return fetch('http://localhost:8080/Animek')
-
       .then((response) => response.json())
-
       .then((responseJson) => {
-
         this.setState({
-
           isLoading: false,
-
           dataSource: responseJson,
-
           animedata: [],
-
           dataSource2: responseJson,
-
   
-
         }, function(){
 
-
-
         });
-
-
 
       })
 
       .catch((error) =>{
-
         console.error(error);
 
       });
@@ -61,9 +49,7 @@ export default class Anime extends Component {
 
 
   displayModal(show){
-
     this.setState({isVisible: show})
-
   }
 
 report=async(uzi)=>{
@@ -71,48 +57,33 @@ report=async(uzi)=>{
 }
 
   kereses=async (tipus)=>{
-
     //alert(tipus)
 
     let bemenet={
-
       bevitel3:tipus
-
     }
 
 
 
     return fetch('http://localhost:8080/tipusok',{
-
       method: "POST",
-
       body: JSON.stringify(bemenet),
-
       headers: {"Content-type": "application/json; charset=UTF-8"}
 
     }
-
-       
-
+     
     )
 
     .then((response) => response.json())
-
     .then((responseJson) => {
 
-
-
       this.setState({
-
         isLoading: false,
-
-        dataSource: responseJson,
-
+        dataSource: responseJson
+        
       }, function(){
 
       });
-
-
 
     })
 
@@ -127,61 +98,41 @@ report=async(uzi)=>{
 
 
   hivas=async (szam)=>{
-
   //alert(szam)
-
     this.setState({akttema:szam})
 
-
-
     let bemenet={
-
       bevitel1:szam
-
     }
 
 
 
     return fetch('http://localhost:8080/animekomment',{
-
       method: "POST",
-
       body: JSON.stringify(bemenet),
-
       headers: {"Content-type": "application/json; charset=UTF-8"}
-
-    }
-
-       
+    }      
 
     )
-
     .then((response) => response.json())
-
     .then((responseJson) => {
 
-
-
       this.setState({
-
         isLoading: false,
-
         dataSource2: responseJson,
-
       }, function(){
-
-
 
         //alert(JSON.stringify(this.state.dataSource2))
 
       });
 
+      var bemenet={bevitel1:szam}
+      //fetch animelink
 
 
     })
 
     .catch((error) =>{
-
       console.error(error);
 
     });
@@ -269,7 +220,7 @@ report=async(uzi)=>{
           <View style = {styles.modal} /* Modal Törzse */>
 
 
-
+        
           
 
 
@@ -294,7 +245,13 @@ report=async(uzi)=>{
 
           <View style={{borderWidth:1,margin:20,backgroundColor:"#367588",paddingLeft:10,paddingRight:10,borderRadius:10}}>
 
-
+        <Iframe url={item.anime_link}
+        width="auto"
+        height="500px"
+        id="myId"
+        className="myClassname"
+        display="initial"
+        position="relative"/>
 
          
 

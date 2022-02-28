@@ -39,7 +39,7 @@ export default class Komment extends Component {
     //alert(szam)
     this.setState({})
 
-    return fetch('http://'+ipcim+':8080/tema')
+    return fetch('http://localhost:8080/tema')
       .then((response) => response.json())
       .then((responseJson) => {
 
