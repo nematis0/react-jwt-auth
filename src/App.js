@@ -19,6 +19,8 @@ import Torles from "./sajatosztalyok/Torles";
 import Uzenettorles from "./sajatosztalyok/Uzenettorles";
 import Animefelvitel from "./sajatosztalyok/Animefelvitel";
 import Upload from "./sajatosztalyok/Upload";
+import Belvitel from "./sajatosztalyok/Belvitel";
+import Forumuzenet from "./sajatosztalyok/Forumuzenet";
 
 class App extends Component {
   constructor(props) {
@@ -63,6 +65,7 @@ class App extends Component {
         <Nav className="mr-auto">
           <Nav.Link href="/Anime">Animék</Nav.Link>
           <Nav.Link href="/Kereses">Keresés</Nav.Link>
+          <Nav.Link href="/Forumuzenet">Forum</Nav.Link>
           {showAdminBoard && (
           <NavDropdown title="Admin" id="collasible-nav-dropdown">
             
@@ -122,6 +125,7 @@ class App extends Component {
             <Route path="/Uzenettorles" component={Uzenettorles}/>
             <Route path="/Animefelvitel" component={Animefelvitel}/>
             <Route path="/Upload" component={Upload}/>
+            <Route path="/Forumuzenet" component={Forumuzenet}/>
           </Switch>
         </div>
       </div>

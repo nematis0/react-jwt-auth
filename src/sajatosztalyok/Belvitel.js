@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet,Text, TextInput, View,TouchableOpacity } from 'react-native-web';
 
 
-export default class Bevitel extends Component {
+export default class Belvitel extends Component {
   constructor(props) {
     super(props);
     this.state = {
