@@ -16,7 +16,7 @@ export default class Forumuzenet extends Component {
   }
   
   componentDidMount(){
-    return fetch('http://localhost:8080/forumkommentfelvitel')
+    return fetch('http://localhost:8080/forumuzik')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -39,7 +39,7 @@ export default class Forumuzenet extends Component {
     //alert(szam)
     this.setState({})
 
-    return fetch('http://localhost:8080/forumkommentfelvitel')
+    return fetch('http://localhost:8080/forumuzik')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -73,7 +73,7 @@ export default class Forumuzenet extends Component {
           <Text style={{color:"#dd00cc",fontSize:18,marginTop:5, marginLeft:10}}>
           {item.forum_nev} </Text>
           <Text style={{color:"black",fontSize:20, marginLeft:10}}>
-          {item.forum_komment} </Text>          
+          {item.forum_szoveg} </Text>          
    
           </View>
         

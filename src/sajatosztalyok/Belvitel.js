@@ -25,7 +25,7 @@ felvitel=async ()=>{
       bevitel2:this.state.komment
     }
 
-    fetch('http://localhost:8080/forumkommentfelvitel',{
+    fetch('http://localhost:8080/forumuzenetfelvitel',{
       method: "POST",
       body: JSON.stringify(bemenet),
       headers: {"Content-type": "application/json; charset=UTF-8"}
