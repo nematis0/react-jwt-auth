@@ -6,6 +6,8 @@ import "./App.css";
 
 import AuthService from "./services/auth.service";
 
+import BackgroundImagePage from "./components/BackgroundImagePage";
+
 import Login from "./components/login.component";
 import Register from "./components/register.component";
 import Home from "./components/home.component";
@@ -57,9 +59,9 @@ class App extends Component {
       <div>
 
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">
-        Anime World
-      </Navbar.Brand>
+      <Link to={"/"} className="navbar-brand">
+            Anime World
+          </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
@@ -125,7 +127,10 @@ class App extends Component {
             <Route path="/Uzenettorles" component={Uzenettorles}/>
             <Route path="/Animefelvitel" component={Animefelvitel}/>
             <Route path="/Upload" component={Upload}/>
+            <Route path="/Belvitel" component={Belvitel}/>
             <Route path="/Forumuzenet" component={Forumuzenet}/>
+
+            <Route path="/BackgroundImagePage" component={BackgroundImagePage}/>
           </Switch>
         </div>
       </div>

@@ -30,3 +30,12 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.bg {
+  background-image: url("./bg.jpg");
+  height: 90vh;
+  width: 70vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

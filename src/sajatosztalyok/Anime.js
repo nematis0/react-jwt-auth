@@ -165,41 +165,94 @@ report=async(uzi)=>{
 
 
     <ScrollView
-
         horizontal={true}
-
         pagingEnabled={true}
-
         showsHorizontalScrollIndicator={false}
-
         ref={(node) => this.scroll = node}
-
     >
 
           <TouchableOpacity style={styles.ButtonContainer}
-
           onPress={async ()=>this.kereses("Action")}>
-
           <View style={styles.ScrollContainer}>
-
           <Text style={styles.ScrollTextContainer}>Action</Text>
-
           </View>
-
           </TouchableOpacity>
 
-
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.kereses("Adventure")}>
+          <View style={styles.ScrollContainer}>
+          <Text style={styles.ScrollTextContainer}>Adventure</Text>
+          </View>
+          </TouchableOpacity>
 
           <TouchableOpacity style={styles.ButtonContainer}
-
-          onPress={async ()=>this.kereses("Comedy")}>
-
+          onPress={async ()=>this.kereses("Drama")}>
           <View style={styles.ScrollContainer}>
-
-          <Text style={styles.ScrollTextContainer}>Comedy</Text>
-
+          <Text style={styles.ScrollTextContainer}>Drama</Text>
           </View>
+          </TouchableOpacity>
 
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.kereses("Comedy")}>
+          <View style={styles.ScrollContainer}>
+          <Text style={styles.ScrollTextContainer}>Comedy</Text>
+          </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.kereses("Fantasy")}>
+          <View style={styles.ScrollContainer}>
+          <Text style={styles.ScrollTextContainer}>Fantasy</Text>
+          </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.kereses("Horror")}>
+          <View style={styles.ScrollContainer}>
+          <Text style={styles.ScrollTextContainer}>Horror</Text>
+          </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.kereses("Mystery")}>
+          <View style={styles.ScrollContainer}>
+          <Text style={styles.ScrollTextContainer}>Mystery</Text>
+          </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.kereses("Romance")}>
+          <View style={styles.ScrollContainer}>
+          <Text style={styles.ScrollTextContainer}>Romance</Text>
+          </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.kereses("Sci-Fi")}>
+          <View style={styles.ScrollContainer}>
+          <Text style={styles.ScrollTextContainer}>Sci-Fi</Text>
+          </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.kereses("Slice of Life")}>
+          <View style={styles.ScrollContainer}>
+          <Text style={styles.ScrollTextContainer}>Slice of Life</Text>
+          </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.kereses("Sports")}>
+          <View style={styles.ScrollContainer}>
+          <Text style={styles.ScrollTextContainer}>Sports</Text>
+          </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.ButtonContainer}
+          onPress={async ()=>this.kereses("Supernatural")}>
+          <View style={styles.ScrollContainer}>
+          <Text style={styles.ScrollTextContainer}>Supernatural</Text>
+          </View>
           </TouchableOpacity>
 
 
