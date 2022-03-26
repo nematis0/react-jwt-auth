@@ -47,7 +47,7 @@ felvitel=async ()=>{
   render() {
     return (
       <View style = {{}}>
-        <View style={{padding: 10, backgroundColor:'#dddddd'}}>
+        <View style={{borderWidth:5,borderColor:"#0fb0fb",borderRadius:10, margin:20,backgroundColor:"lightgray"}}>
             <Text style={{color:'black'}}>
                 Név:
             </Text>
@@ -69,7 +69,7 @@ felvitel=async ()=>{
             onChangeText={(komment) => this.setState({komment})}
             value={this.state.komment}
           />
-           <TouchableOpacity
+           <TouchableOpacity style={{padding:10}}
             onPress={async ()=>this.felvitel()}>
             <View style={styles.gomb}>
               <Text style={styles.gombSzoveg}>Küldés</Text>
@@ -84,18 +84,18 @@ felvitel=async ()=>{
 }
 
 const styles = StyleSheet.create({
-    gombSzoveg:{
-            textAlign:'center',
-            color:'white',
-            marginTop:'auto',
-            marginBottom:'auto',
-            fontSize:25
-    },
-    gomb:{
-            height:45,
-            backgroundColor:'blue',
-            width:'45%',
-            alignSelf:'center',
-            borderRadius:10
+  gombSzoveg:{
+    textAlign:'center',
+    color:'white',
+    marginTop:'auto',
+    marginBottom:'auto',
+    fontSize:25
+},
+gomb:{
+    height:45,
+    backgroundColor:'#0fb0fb',
+    width:'45%',
+    alignSelf:'center',
+    borderRadius:10
     },
 });

@@ -65,15 +65,15 @@ export default class FetchExample extends React.Component {
           renderItem={({item}) => 
 
           <View >
-          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.anime_cim} </Text>
+          <Text style={{color:"black",fontSize:20, fontWeight:"bold",textAlign:"center",marginTop:15,marginBottom:5}}   >{item.anime_cim} </Text>
           <Image  source={{uri: 'http://localhost:8080/'+item.anime_kep}} style={{width:300,height:300,marginLeft:"auto",marginRight:"auto"}} />  
 
           <TouchableOpacity
-        style={styles.kekgomb}
-        onPress={async ()=>this.szavazat(item.anime_id)}
-      >
-        <Text style={{color:"white",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
-      </TouchableOpacity>
+          onPress={async ()=>this.szavazat(item.anime_id)}>
+          <View style={styles.gomb}>
+          <Text style={styles.gombSzoveg}>Törlés</Text>
+          </View>
+         </TouchableOpacity>
           </View>
         
         }
@@ -87,13 +87,17 @@ export default class FetchExample extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  
-  kekgomb: {
-    alignItems: "center",
-    backgroundColor: "blue",
-    padding: 10,
-    width:300,
-    marginLeft:"auto",
-    marginRight:"auto",
-  }
+  gombSzoveg:{
+    textAlign:'center',
+    color:'white',
+    marginTop:'auto',
+    marginBottom:'auto',
+    fontSize:25
+},
+gomb:{
+    height:45,
+    backgroundColor:'#0fb0fb',
+    width:'28%',
+    alignSelf:'center',
+},
 });

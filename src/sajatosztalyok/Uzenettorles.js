@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, FlatList, ActivityIndicator, Text, View, Image , TouchableOpacity } from 'react-native-web';
+import {StyleSheet, FlatList, ActivityIndicator, Text, View, TouchableOpacity } from 'react-native-web';
 
 export default class FetchExample extends React.Component {
 
@@ -27,7 +27,7 @@ export default class FetchExample extends React.Component {
 
 
   componentDidMount(){
-    return fetch('http://localhost:8080/animekommentek')
+    return fetch('http://localhost:8080/forumkommentek')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -62,22 +62,22 @@ export default class FetchExample extends React.Component {
           data={this.state.dataSource}
           renderItem={({item}) => 
 
-          <View >
-          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.uzenet_nev} </Text>
-          <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.uzenet_szoveg} </Text> 
+          <View style={{borderWidth:5, borderColor:"#0fb0fb", borderRadius:10, margin:20, backgroundColor:"lightgray"}}>
+          <Text style={{color:"black", fontWeight:"bold", fontSize:18, marginTop:5, marginLeft:10, textAlign:'center'}}   >{item.forum_nev} </Text>
+          <Text style={{color:"black", fontSize:20, marginLeft:10, textAlign:'center'}}   >{item.forum_szoveg} </Text> 
 
-          <TouchableOpacity
-        style={styles.kekgomb}
-        onPress={async ()=>this.torles(item.uzenet_id)}
-      >
-        <Text style={{color:"white",fontWeight:"bold",fontSize:15}}  >Törlés</Text>
-      </TouchableOpacity>
+          <TouchableOpacity style={{padding:10}}
+          onPress={async ()=>this.torles(item.forum_id)}>
+          <View style={styles.gomb}>
+          <Text style={styles.gombSzoveg}>Törlés</Text>
+          </View>
+         </TouchableOpacity>
           </View>
         
         }
 
         
-          keyExtractor={({uzenet_id}, index) => uzenet_id}
+          keyExtractor={({forum_id}, index) => forum_id}
         />
       </View>
     );
@@ -85,13 +85,18 @@ export default class FetchExample extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  
-  kekgomb: {
-    alignItems: "center",
-    backgroundColor: "blue",
-    padding: 10,
-    width:300,
-    marginLeft:"auto",
-    marginRight:"auto",
-  }
+  gombSzoveg:{
+    textAlign:'center',
+    color:'white',
+    marginTop:'auto',
+    marginBottom:'auto',
+    fontSize:25
+},
+gomb:{
+    height:45,
+    backgroundColor:'#0fb0fb',
+    width:'45%',
+    alignSelf:'center',
+    borderRadius:10
+},
 });

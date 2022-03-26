@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,Text, TextInput, View,TouchableOpacity, FlatList, RefreshControl  } from 'react-native-web';
+import { StyleSheet, Text, View, FlatList} from 'react-native-web';
 import Belvitel from './Belvitel';
 
 
@@ -68,11 +68,11 @@ export default class Forumuzenet extends Component {
           data={this.state.dataSource}
           renderItem={({item}) => 
 
-          <View style={{backgroundColor:'lightblue', borderRadius:15, margin:10}}>
+          <View style={{borderWidth:5, borderColor:"#0fb0fb", borderRadius:10, margin:20, backgroundColor:"lightgray"}}>
 
-          <Text style={{color:"#dd00cc",fontSize:18,marginTop:5, marginLeft:10}}>
+          <Text style={{color:"black", fontWeight:"bold", fontSize:18, marginTop:5, marginLeft:10, textAlign:'center'}}>
           {item.forum_nev} </Text>
-          <Text style={{color:"black",fontSize:20, marginLeft:10}}>
+          <Text style={{color:"black", fontSize:20, marginLeft:10, textAlign:'center'}}>
           {item.forum_szoveg} </Text>          
    
           </View>
@@ -87,17 +87,18 @@ export default class Forumuzenet extends Component {
 }
 
 const styles = StyleSheet.create({
-    gombSzoveg:{
-            textAlign:'center',
-            color:'white',
-            marginTop:'auto',
-            marginBottom:'auto',
-            fontSize:16
-    },
-    gomb:{
-            height:25,
-            backgroundColor:'blue',
-            width:'25%',
-            borderRadius:10
+  gombSzoveg:{
+    textAlign:'center',
+    color:'white',
+    marginTop:'auto',
+    marginBottom:'auto',
+    fontSize:25
+},
+gomb:{
+    height:45,
+    backgroundColor:'#0fb0fb',
+    width:'45%',
+    alignSelf:'center',
+    borderRadius:10
     },
 });

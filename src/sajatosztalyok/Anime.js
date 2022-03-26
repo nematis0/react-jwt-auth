@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-native';
-import { View, Text, StyleSheet, TouchableOpacity,Dimensions, Image, FlatList, ScrollView} from 'react-native-web';
+import { View, Text, StyleSheet, TouchableOpacity,Dimensions, Image, FlatList, ScrollView, Button} from 'react-native-web';
 import Iframe from 'react-iframe';
 
 
@@ -51,10 +51,6 @@ export default class Anime extends Component {
   displayModal(show){
     this.setState({isVisible: show})
   }
-
-report=async(uzi)=>{
-  alert(uzi)
-}
 
   kereses=async (tipus)=>{
     //alert(tipus)
@@ -171,89 +167,56 @@ report=async(uzi)=>{
         ref={(node) => this.scroll = node}
     >
 
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Action")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Action</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Adventure")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Adventure</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Drama")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Drama</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Comedy")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Comedy</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Fantasy")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Fantasy</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Horror")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Horror</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Mystery")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Mystery</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Romance")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Romance</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Sci-Fi")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Sci-Fi</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Slice of Life")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Slice of Life</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Sports")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Sports</Text>
-          </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.kereses("Supernatural")}>
-          <View style={styles.ScrollContainer}>
-          <Text style={styles.ScrollTextContainer}>Supernatural</Text>
-          </View>
-          </TouchableOpacity>
+<View style={styles.alternativeLayoutButtonContainer}>
+        <Button
+            onPress={async ()=>this.kereses("Action")}
+            title="Action"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Adventure")}
+            title="Adventure"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Comedy")}
+            title="Comedy"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Drama")}
+            title="Drama"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Fantasy")}
+            title="Fantasy"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Horror")}
+            title="Horror"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Mystery")}
+            title="Mystery"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Romance")}
+            title="Romance"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Sci-Fi")}
+            title="Sci-Fi"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Slice of Life")}
+            title="Slice of Life"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Sports")}
+            title="Sports"
+          />
+          <Button
+            onPress={async ()=>this.kereses("Supernatural")}
+            title="Supernatural"
+          />
+        </View>
 
 
 
@@ -291,51 +254,11 @@ report=async(uzi)=>{
 
 
 
-          <Text style = {styles.cim} /*Cím */ >{this.state.animedata.anime_leiras}</Text>
+          <Text style = {styles.modal2} /*Cím */ >{this.state.animedata.anime_leiras}</Text>
 
 
-
-          <FlatList
-
-          data={this.state.dataSource2}
-
-          renderItem={({item}) => 
-
-
-
-          <View style={{borderWidth:1,margin:20,backgroundColor:"#367588",paddingLeft:10,paddingRight:10,borderRadius:10}}>
-
-        
-
-         
-
-          <Text style={styles.cim}>{item.uzenet_szoveg}</Text>
-
-          <Text style={styles.cim}>{item.uzenet_nev}</Text>
-        
-          <TouchableOpacity style={styles.ButtonContainer}
-          onPress={async ()=>this.report()}>
-          <View style={styles.ScrollContainer}>
-          </View>
-          </TouchableOpacity>
 
           
-
-     
-
-   
-
-        </View>
-
-        
-
-        }
-
-    
-
-          keyExtractor={({uzenet_id}, index) => uzenet_id}
-
-        />
 
           </View>
 
@@ -467,6 +390,14 @@ const styles = StyleSheet.create({
     marginTop:100,
     textAlign: 'center',
   },
+  modal2: {
+    fontSize: 24,
+    color: '#00479e',
+    marginTop:50,
+    textAlign: 'center',
+    padding: 100,
+    paddingTop: 15,
+  },
   gombSzoveg:{
     textAlign:'center',
     color:'white',
@@ -506,5 +437,10 @@ const styles = StyleSheet.create({
     marginTop:'auto',
     marginBottom:'auto',
     fontSize:25,
+  },
+  alternativeLayoutButtonContainer: {
+    margin: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
 });

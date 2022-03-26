@@ -12,6 +12,7 @@ export default class Animefelvitel extends Component {
         tipus:"", 
         kep:"", 
         leiras:"",
+        link:"",
         
     };
   }
@@ -19,7 +20,7 @@ export default class Animefelvitel extends Component {
 felvitel=async ()=>{
     //alert("megnyomva a gomb")
 
-    if (this.state.anime_cim==""|| this.state.anime_tipus==""|| this.state.anime_kep==""|| this.state.anime_leiras=="")
+    if (this.state.anime_cim==""|| this.state.anime_tipus==""|| this.state.anime_kep==""|| this.state.anime_leiras==""|| this.state.anime_link)
     {
       alert("toltsd ki!!")
       return
@@ -29,6 +30,7 @@ felvitel=async ()=>{
       bevitel2:this.state.anime_tipus,
       bevitel3:this.state.anime_kep,
       bevitel4:this.state.anime_leiras,
+      bevitel5:this.state.anime_link,
       
     }
 
@@ -52,6 +54,7 @@ felvitel=async ()=>{
     this.setState({anime_tipus:""})
     this.setState({anime_kep:""})
     this.setState({anime_leiras:""})
+    this.setState({anime_link:""})
     
 
 })
@@ -95,7 +98,17 @@ felvitel=async ()=>{
             onChangeText={(anime_leiras) => this.setState({anime_leiras})}
             value={this.state.anime_leiras}
           />
-          <FileUpload anime_cim={this.state.anime_cim} anime_tipus={this.state.anime_tipus} anime_kep={this.state.anime_kep} anime_leiras={this.state.anime_leiras}       ></FileUpload>
+          <Text style={{color:'black'}}>
+                Anime
+            </Text>
+          <TextInput
+            placeholderTextColor="#dddddd"
+            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30}}
+            placeholder="Anime link: "
+            onChangeText={(anime_link) => this.setState({anime_link})}
+            value={this.state.anime_link}
+          />
+          <FileUpload anime_cim={this.state.anime_cim} anime_tipus={this.state.anime_tipus} anime_kep={this.state.anime_kep} anime_leiras={this.state.anime_leiras} anime_link={this.state.anime_link}      ></FileUpload>
   
           </View>
   
